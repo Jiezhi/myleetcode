@@ -6,6 +6,7 @@ https://leetcode.com/problems/longest-substring-without-repeating-characters
  @Last Modified time: 2018-07-06 17:44:55 
 """
 
+
 class Solution:
     def lengthOfLongestSubstring(self, s):
         """
@@ -23,7 +24,8 @@ class Solution:
                 max_substr += c
         max_len = max(len(max_substr), max_len)
         return max_len
-        
+
+
 if __name__ == '__main__':
     s = 'abcdcfge'
     print(Solution().lengthOfLongestSubstring(s))
