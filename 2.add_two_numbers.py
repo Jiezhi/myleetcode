@@ -6,14 +6,16 @@ https://leetcode.com/problems/add-two-numbers
  @Last Modified time: 2018-07-06 17:43:26 
 """
 
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
 
+
 class Solution:
-    def addTwoNumbers(self, l1, l2):
+    def add_two_numbers(self, l1, l2):
         """
         :type l1: ListNode
         :type l2: ListNode
@@ -39,6 +41,9 @@ class Solution:
         if add_one:
             tmp.next = ListNode(1)
         return l3.next
-        
+
+
 if __name__ == '__main__':
+    # (2 -> 4 -> 3) + (5 -> 6 -> 4)
+    # print(Solution().add_two_numbers(n1, n2))
     pass

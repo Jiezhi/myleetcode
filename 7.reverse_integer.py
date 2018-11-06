@@ -6,6 +6,7 @@
  @Last Modified time: 2018-11-02 16:13:53 
 """
 
+
 class Solution:
     def reverse(self, x):
         """
@@ -18,7 +19,7 @@ class Solution:
         if s[0] == '-':
             ret += '-'
             l -= 1
-        
+
         for i in range(l):
             ret += s[-i - 1]
         x = int(ret)
@@ -26,5 +27,7 @@ class Solution:
             return 0
         return x
 
+
 if __name__ == '__main__':
-    print(Solution().reverse(-1024))
+    assert Solution().reverse(1024) == 4201
+    assert Solution().reverse(-1024) == -4201
