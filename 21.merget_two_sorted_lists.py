@@ -8,12 +8,7 @@ Created on 2018-11-11
 Reference: 
 """
 
-
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from list_node import *
 
 
 class Solution:
@@ -39,22 +34,6 @@ class Solution:
         return ret.next
 
 
-def buildListNode(nums):
-    ret = tmp = ListNode(0)
-    for num in nums:
-        tmp.next = ListNode(num)
-        tmp = tmp.next
-    return ret.next
-
-
-def printData(l):
-    while l:
-        print(l.val)
-        l = l.next
-    print('----')
-
-
 if __name__ == '__main__':
-    t = buildListNode([1, 2, 3])
-    printData(t)
-    printData(Solution().mergeTwoLists(buildListNode([1, 2, 3]), buildListNode([2, 3, 4])))
+    assert Solution().mergeTwoLists(buildListNode([1, 2, 3]), buildListNode([2, 3, 4])) \
+           == buildListNode([1, 2, 2, 3, 3, 4])

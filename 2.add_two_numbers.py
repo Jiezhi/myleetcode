@@ -6,12 +6,7 @@ https://leetcode.com/problems/add-two-numbers
  @Last Modified time: 2018-07-06 17:43:26 
 """
 
-
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+from list_node import *
 
 
 class Solution:
@@ -44,6 +39,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    # (2 -> 4 -> 3) + (5 -> 6 -> 4)
-    # print(Solution().add_two_numbers(n1, n2))
-    pass
+    assert Solution().add_two_numbers(
+        buildListNode([2, 4, 3]),
+        buildListNode([5, 6, 4])
+    ) == buildListNode([7, 0, 8])
