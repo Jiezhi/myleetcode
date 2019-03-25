@@ -6,6 +6,7 @@ Created on 2019-03-18
 
 Leetcode: https://leetcode.com/explore/learn/card/data-structure-tree/134/traverse-a-tree/928/
 
+same as problem 144.
 """
 from tree_node import *
 

@@ -15,16 +15,16 @@ from tree_node import *
 class Solution:
     def preorderTraversal(self, root: TreeNode) -> list:
         ans = []
-        p = root
-        q = []
-        while p or len(q) > 0:
-            while p:
-                ans.append(p.val)
-                q.append(p)
-                p = p.left
-            if len(q) > 0:
-                p = q.pop()
-                p = p.right
+        tmp = root
+        stack = []
+        while tmp or len(stack) > 0:
+            if tmp:
+                ans.append(tmp.val)
+                stack.append(tmp)
+                tmp = tmp.left
+            else:
+                tmp = stack.pop()
+                tmp = tmp.right
         return ans
 
 

@@ -21,13 +21,13 @@ class Solution:
         stack = []
         tmp = root
         while tmp or len(stack) > 0:
-            while tmp:
+            if tmp:
                 stack.append(tmp)
                 tmp = tmp.left
-            tmp = stack.pop()
-            ret.append(tmp.val)
-            tmp = tmp.right
-
+            else:
+                tmp = stack.pop()
+                ret.append(tmp.val)
+                tmp = tmp.right
         return ret
 
 
