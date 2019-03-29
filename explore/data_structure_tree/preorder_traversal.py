@@ -77,6 +77,11 @@ class Solution:
         return ans
 
 
+def test_answer():
+    assert Solution().preorderTraversal(build_tree_node([1, None, 2, 3])) == [1, 2, 3]
+    assert Solution().preorderTraversal2(build_tree_node([1, None, 2, 3])) == [1, 2, 3]
+
+
 if __name__ == '__main__':
     assert Solution().preorderTraversal(build_tree_node([1, None, 2, 3])) == [1, 2, 3]
     assert Solution().preorderTraversal2(build_tree_node([1, None, 2, 3])) == [1, 2, 3]
