@@ -16,8 +16,6 @@ class Solution:
         Do not return anything, modify s in-place instead.
         """
         l = len(s)
-        if l == 0:
-            return
         for i in range(math.ceil(l / 2)):
             s[i], s[l - i - 1] = s[l - i - 1], s[i]
 
