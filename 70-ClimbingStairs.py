@@ -5,7 +5,7 @@ Created on 2018-11-16
 
 @author: 'Jiezhi.G@gmail.com'
 
-Reference: 
+Reference: More solution can refer to https://leetcode.com/explore/learn/card/recursion-i/255/recursion-memoization/2377/
 """
 
 
@@ -28,3 +28,7 @@ def test():
     assert Solution().climbStairs(1) == 1
     assert Solution().climbStairs(2) == 2
     assert Solution().climbStairs(3) == 3
+
+
+if __name__ == '__main__':
+    test()
