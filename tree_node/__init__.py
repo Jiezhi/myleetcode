@@ -24,7 +24,7 @@ def build_tree_node(nums) -> TreeNode:
         return None
     num_nodes = []
     for num in nums:
-        if num:
+        if num is not None:
             num_nodes.append(TreeNode(num))
         else:
             num_nodes.append(None)
@@ -43,7 +43,7 @@ def build_tree_node(nums) -> TreeNode:
 
 
 def print_tree_node(tree_node: TreeNode):
-    if tree_node and tree_node.val:
+    if tree_node and tree_node.val is not None:
         print(tree_node.val)
         print_tree_node(tree_node.left)
         print_tree_node(tree_node.right)
@@ -51,4 +51,7 @@ def print_tree_node(tree_node: TreeNode):
 
 if __name__ == '__main__':
     tree = build_tree_node([1, None, 2, None, 3, 4, 5, 6, None, 8])
+    print_tree_node(tree)
+
+    tree = build_tree_node([0, 1, 1])
     print_tree_node(tree)
