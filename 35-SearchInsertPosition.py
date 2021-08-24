@@ -15,9 +15,38 @@ Created on 2018-11-13
 但是题目中提到是已经排好序的数组了，所以主要考察的是二分查找
 Reference: 
 """
+from typing import List
+
+from tool import print_results
 
 
 class Solution:
+    @print_results
+    def searchInsert2(self, nums: List[int], target: int) -> int:
+        """
+        20210824 do it again
+        62 / 62 test cases passed.
+        Status: Accepted
+        Runtime: 44 ms
+        Memory Usage: 15.2 MB
+        :param nums:
+        :param target:
+        :return:
+        """
+        low, high = 0, len(nums) - 1
+        while low <= high:
+            mid = low + (high - low) // 2
+            if nums[mid] == target:
+                return mid
+            if nums[mid] < target:
+                low = mid + 1
+            else:
+                high = mid - 1
+        # now high = low - 1
+        if high >= 0 and nums[high] > target:
+            return high
+        return low
+
     def searchInsert(self, nums, target):
         """
         :type nums: List[int]
@@ -36,8 +65,6 @@ class Solution:
             else:
                 end = mid
         return start
-        # method 2
-        # return binarySearch(0, len(nums) - 1, nums, target)
 
 
 def binarySearch(start, end, nums, target):
@@ -57,10 +84,20 @@ def binarySearch(start, end, nums, target):
 
 
 def test():
-    # print(Solution().searchInsert([1, 3, 5, 6], 2))
-    # print(binarySearch(0, 3, [1, 3, 5, 6], 2))
     assert Solution().searchInsert([1], 0) == 0
+    assert Solution().searchInsert([1], 2) == 1
     assert Solution().searchInsert([1, 3], 3) == 1
     assert Solution().searchInsert([1, 3, 5, 6], 5) == 2
     assert Solution().searchInsert([1, 3, 5, 6], 2) == 1
     assert Solution().searchInsert([1, 3, 5, 6], 7) == 4
+    assert Solution().searchInsert2([1], 0) == 0
+    assert Solution().searchInsert2([1], 2) == 1
+    assert Solution().searchInsert2([1, 3], 3) == 1
+    assert Solution().searchInsert2([1, 3, 4, 5, 6], 3) == 1
+    assert Solution().searchInsert2([1, 3, 5, 6], 5) == 2
+    assert Solution().searchInsert2([1, 3, 5, 6], 2) == 1
+    assert Solution().searchInsert2([1, 3, 5, 6], 7) == 4
+
+
+if __name__ == '__main__':
+    test()
