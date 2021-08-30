@@ -15,6 +15,16 @@ class TreeNode:
         self.left = left
         self.right = right
 
+    def __eq__(self, other):
+        if self is None and other is None:
+            return True
+        if self is None or other is None:
+            return False
+        if self.val != other.val:
+            return False
+        while self is not None and other is not None:
+            return self.left == other.left and self.right == other.right
+
     def __str__(self):
         return str(self.val)
 
@@ -55,3 +65,5 @@ if __name__ == '__main__':
 
     tree = build_tree_node([0, 1, 1])
     print_tree_node(tree)
+
+    assert build_tree_node([1, 2, 3, None, None, 4, 5]) == build_tree_node([1, 2, 3, None, None, 4, 5])
