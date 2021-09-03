@@ -7,8 +7,10 @@ Created on 2019-03-18
 Leetcode: https://leetcode.com/explore/learn/card/data-structure-tree/134/traverse-a-tree/928/
 """
 
-
 # Definition for a binary tree node.
+from typing import List
+
+
 class TreeNode:
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -26,7 +28,10 @@ class TreeNode:
             return self.left == other.left and self.right == other.right
 
     def __str__(self):
-        return str(self.val)
+        return self.__repr__()
+
+    def __repr__(self):
+        return str(get_tree_node_list(self))
 
 
 def build_tree_node(nums) -> TreeNode:
@@ -59,11 +64,22 @@ def print_tree_node(tree_node: TreeNode):
         print_tree_node(tree_node.right)
 
 
+def get_tree_node_list(tree_node: TreeNode) -> List[int]:
+    ret = []
+    if tree_node and tree_node.val is not None:
+        ret.append(tree_node.val)
+        ret.append(get_tree_node_list(tree_node.left))
+        ret.append(get_tree_node_list(tree_node.right))
+    return ret if len(ret) > 0 else None
+
+
 if __name__ == '__main__':
     tree = build_tree_node([1, None, 2, None, 3, 4, 5, 6, None, 8])
     print_tree_node(tree)
 
     tree = build_tree_node([0, 1, 1])
     print_tree_node(tree)
+
+    print(get_tree_node_list(tree))
 
     assert build_tree_node([1, 2, 3, None, None, 4, 5]) == build_tree_node([1, 2, 3, None, None, 4, 5])
