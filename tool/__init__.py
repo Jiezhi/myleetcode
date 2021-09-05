@@ -5,6 +5,9 @@ Created on 20210809
 Des:
 
 """
+from typing import List
+
+from tree_node import TreeNode, get_tree_node_list
 
 
 def print_results(fn):
