@@ -3,14 +3,42 @@
 Github: https://github.com/Jiezhi/myleetcode
 
 Created on 2019-07-29
+Updated on 2021-09-07
 
 Leetcode: https://leetcode.com/problems/reverse-linked-list/
-
+https://leetcode.com/explore/item/3966
+Difficulty: Easy
 """
+from typing import Optional
+
 from list_node import *
+from tool import print_results
 
 
 class Solution:
+    @print_results
+    def reverseList2(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """
+        20210907 Updated with recursively
+        28 / 28 test cases passed.
+        Status: Accepted
+        Runtime: 40 ms
+        Memory Usage: 20.3 MB
+        :param head:
+        :return:
+        """
+
+        def reverse(nl: ListNode):
+            if nl is None or nl.next is None:
+                return nl, nl
+            hnode, tnode = reverse(nl.next)
+            nl.next = None
+            tnode.next = nl
+            return hnode, nl
+
+        ret, _ = reverse(head)
+        return ret
+
     def reverseList(self, head: ListNode) -> ListNode:
         if not head or not head.next:
             return head
@@ -26,6 +54,9 @@ class Solution:
 
 
 def test():
+    assert Solution().reverseList2(buildListNode([])) == buildListNode([])
+    assert Solution().reverseList2(buildListNode([1, 2, 3, 4, 5])) == buildListNode([5, 4, 3, 2, 1])
+
     assert Solution().reverseList(buildListNode([])) == buildListNode([])
     assert Solution().reverseList(buildListNode([1, 2, 3, 4, 5])) == buildListNode([5, 4, 3, 2, 1])
 
