@@ -31,7 +31,7 @@ class Solution:
 
 def test():
     assert Solution().majorityElement(nums=[3, 2, 3]) == 3
-    assert Solution().majorityElement(nums=[3, 2, 3]) == 3
+    assert Solution().majorityElement2(nums=[3, 2, 3]) == 3
 
 
 if __name__ == '__main__':
