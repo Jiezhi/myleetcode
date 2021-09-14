@@ -26,6 +26,14 @@ class Solution:
         return collections.Counter(nums).most_common(1)[0][0]
 
     def majorityElement2(self, nums: List[int]) -> int:
+        """
+        47 / 47 test cases passed.
+        Status: Accepted
+        Runtime: 160 ms
+        Memory Usage: 15.5 MB
+        :param nums:
+        :return:
+        """
         return sorted(nums)[len(nums) // 2]
 
 
