@@ -7,7 +7,10 @@ Record my leetcode answers with python3.
 
 [![](https://stats.justsong.cn/api/leetcode/?username=Jiezhi)](https://leetcode.com/Jiezhi/)
 
-
 ## Test code
 
 `pytest *.py`
+
+# Thanks
+
+Special thanks to [JetBrains](https://jb.gg/OpenSource).
