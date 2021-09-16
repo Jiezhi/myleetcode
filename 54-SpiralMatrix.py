@@ -3,8 +3,10 @@
 Github: https://github.com/Jiezhi/myleetcode
 
 Created on 2019-08-16
+Updated on 2021-09-16
 
 Leetcode: https://leetcode.com/problems/spiral-matrix/
+https://leetcode.com/explore/item/3977
 
 """
 
@@ -13,6 +15,14 @@ from typing import List
 
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        """
+        23 / 23 test cases passed.
+        Status: Accepted
+        Runtime: 41 ms
+        Memory Usage: 14.3 MB
+        :param matrix:
+        :return:
+        """
         if not matrix:
             return []
         # get horizontal and vertical length
