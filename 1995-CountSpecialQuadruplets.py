@@ -2,6 +2,7 @@
 """
 CREATED AT: 2021/9/5
 Des:
+https://leetcode.com/problems/count-special-quadruplets
 https://leetcode.com/contest/weekly-contest-257/problems/count-special-quadruplets/
 GITHUB: https://github.com/Jiezhi/myleetcode
 

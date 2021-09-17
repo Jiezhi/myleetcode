@@ -3,6 +3,7 @@
 CREATED AT: 2021/7/25
 Des:
 
+https://leetcode.com/problems/sum-of-digits-of-string-after-convert
 GITHUB: https://github.com/Jiezhi/myleetcode
 
 """

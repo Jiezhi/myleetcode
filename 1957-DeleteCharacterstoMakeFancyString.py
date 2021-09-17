@@ -2,6 +2,7 @@
 """
 CREATED AT: 2021/8/7
 Des:
+https://leetcode.com/problems/delete-characters-to-make-fancy-string
 https://leetcode.com/contest/biweekly-contest-58/problems/delete-characters-to-make-fancy-string/
 GITHUB: https://github.com/Jiezhi/myleetcode
 

@@ -2,6 +2,7 @@
 """
 CREATED AT: 2021/7/24
 Des:
+https://leetcode.com/problems/check-if-all-characters-have-equal-number-of-occurrences
 https://leetcode.com/contest/biweekly-contest-57/problems/check-if-all-characters-have-equal-number-of-occurrences/
 GITHUB: https://github.com/Jiezhi/myleetcode
 """
