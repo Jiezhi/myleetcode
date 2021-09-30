@@ -3,6 +3,7 @@
 CREATED AT: 2021/7/25
 Des:
 
+https://leetcode.com/problems/largest-number-after-mutating-substring/
 https://leetcode.com/contest/weekly-contest-251/problems/largest-number-after-mutating-substring/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
