@@ -1,89 +1,68 @@
 #!/usr/bin/env python
 """
-https://leetcode.com/problems/longest-palindromic-substring/description/
-Created on 11/19/18
+CREATED AT: 2021/10/10
+Des:
+https://leetcode.com/problems/longest-palindromic-substring/
+https://leetcode.com/explore/interview/card/top-interview-questions-medium/103/array-and-strings/780/
+https://leetcode.com/study-plan/dynamic-programming/
+GITHUB: https://github.com/Jiezhi/myleetcode
 
-@author: 'Jiezhi.G@gmail.com'
+Difficulty: Medium
 
-Reference: 
+Tags: DP
 """
+from functools import lru_cache
 
 
 class Solution:
-    # 这个方法遇到长字符串在leetcode会超时
-    def longestPalindrome(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-        l = len(s)
-        for i in range(l):
-            for j in range(i + 1):
-                # print(s[j:l - i + j])
-                if isPalindrome(s[j:l - i + j]):
-                    return s[j:l - i + j]
-        # May be a empty str
-        return s
-
-    # 可参考https://segmentfault.com/a/1190000003914228
-    def longestPalindrome2(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-        s = '#' + '#'.join(s) + '#'
-        RL = [0] * len(s)
-        maxRight = 0
-        pos = 0
-        maxLen = 0
-        for i in range(len(s)):
-            if i < maxRight:
-                RL[i] = min(RL[2 * pos - i], maxRight - i)
-            else:
-                RL[i] = 1
-
-            while i - RL[i] >= 0 and i + RL[i] < len(s) and s[i - RL[i]] == s[i + RL[i]]:
-                RL[i] += 1
-
-            if RL[i] + i - 1 > maxRight:
-                maxRight = RL[i] + i - 1
-                pos = i
-
-            maxLen = max(maxLen, RL[i])
-
-        # 如果只返回长度的话：
-        # return maxLen - 1
-
-        maxPos = RL.index(maxLen)
-        return s[maxPos - maxLen + 1: maxPos + maxLen].replace('#', '')
-
-    def longestPalindrome3(self, s):
-        """
-        TODO 动态规划
-        :type s: str
-        :rtype: str
-        """
-        pass
-
-
-def isPalindrome(s):
-    """
-    :param s:
-    :return:
-    """
-    for i in range(len(s) // 2):
-        if s[i] != s[-i - 1]:
+    @lru_cache(None)
+    def isPalindrome(self, s: str) -> bool:
+        if len(s) <= 1:
+            return True
+        if s[0] != s[-1]:
             return False
-    return True
+        return self.isPalindrome(s[1:-1])
+
+    def longestPalindrome(self, s: str) -> str:
+        """
+        Runtime: 360 ms, faster than 92.14% of Python3 online submissions
+        Memory Usage: 37.4 MB, less than 5.51% of Python3 online submissions
+        1 <= s.length <= 1000
+        :param s:
+        :return:
+        """
+
+        if self.isPalindrome(s):
+            return s
+        longest = s[0]
+        for i in range(len(s) - 1):
+            k = 1
+            right_shift = 0
+            while i + right_shift + 1 < len(s) and s[i + right_shift + 1] == s[i]:
+                right_shift += 1
+            tmp_longest = s[i:i + right_shift + 1]
+            while i - k >= 0 and i + k + right_shift < len(s):
+                if self.isPalindrome(s[i - k] + tmp_longest + s[i + k + right_shift]):
+                    tmp_longest = s[i - k] + tmp_longest + s[i + k + right_shift]
+                    k += 1
+                else:
+                    break
+            if len(tmp_longest) > len(longest):
+                longest = tmp_longest
+        return longest
 
 
 def test():
-    assert isPalindrome('bab')
-    assert isPalindrome('bb')
-    assert not isPalindrome('abc')
-    assert Solution().longestPalindrome("") == ""
-    assert Solution().longestPalindrome('babad') == 'bab'
-    assert Solution().longestPalindrome('cbbd') == 'bb'
-    assert Solution().longestPalindrome2("bab") == 'bab'
-    assert Solution().longestPalindrome2("1baab2") == 'baab'
-    assert Solution().longestPalindrome2("45666666baabaab123") == 'baabaab'
+    assert Solution().longestPalindrome(s="bb") == 'bb'
+    assert Solution().longestPalindrome(s="abb") == 'bb'
+    assert Solution().longestPalindrome(s="bppbsooos") == 'sooos'
+    assert Solution().longestPalindrome(s="ac") == 'a'
+    assert Solution().longestPalindrome(s="bba") == 'bb'
+    assert Solution().longestPalindrome(s="babad") == 'bab'
+    assert Solution().longestPalindrome(s="zzdjdofaodjfoajsdfoajsdofjasodbabadjdoafjowejoajweofjaweofjaowe") == 'djd'
+    assert Solution().longestPalindrome(s="cbbd") == 'bb'
+    assert Solution().longestPalindrome(s="a") == 'a'
+
+
+if __name__ == '__main__':
+    test()
