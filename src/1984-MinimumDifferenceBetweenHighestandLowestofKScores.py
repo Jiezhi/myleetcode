@@ -2,6 +2,7 @@
 """
 CREATED AT: 2021/8/29
 Des:
+https://leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores
 https://leetcode.com/contest/weekly-contest-256/problems/minimum-difference-between-highest-and-lowest-of-k-scores
 GITHUB: https://github.com/Jiezhi/myleetcode
 

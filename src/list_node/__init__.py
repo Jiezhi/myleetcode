@@ -25,6 +25,14 @@ class ListNode:
         else:
             return False
 
+    def __repr__(self):
+        ret = []
+        node = self
+        while node is not None:
+            ret.append(node.val)
+            node = node.next
+        return str(ret)
+
 
 def buildListNode(nums):
     ret = tmp = ListNode(0)

@@ -2,6 +2,7 @@
 """
 CREATED AT: 2021/8/15
 Des:
+https://leetcode.com/problems/number-of-strings-that-appear-as-substrings-in-word
 https://leetcode.com/contest/weekly-contest-254/problems/number-of-strings-that-appear-as-substrings-in-word/
 GITHUB: https://github.com/Jiezhi/myleetcode
 

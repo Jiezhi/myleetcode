@@ -2,7 +2,7 @@
 """
 CREATED AT: 2021/10/16
 Des:
-
+https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color
 https://leetcode.com/contest/biweekly-contest-63/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/
 GITHUB: https://github.com/Jiezhi/myleetcode
 

@@ -2,6 +2,7 @@
 """
 CREATED AT: 2021/8/8
 Des:
+https://leetcode.com/problems/check-if-string-is-a-prefix-of-array
 https://leetcode.com/contest/weekly-contest-253/problems/check-if-string-is-a-prefix-of-array/
 GITHUB: https://github.com/Jiezhi/myleetcode
 

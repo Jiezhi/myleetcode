@@ -3,6 +3,7 @@
 CREATED AT: 2021/8/21
 Des:
 
+https://leetcode.com/problems/minimum-time-to-type-word-using-special-typewriter
 https://leetcode.com/contest/biweekly-contest-59/problems/minimum-time-to-type-word-using-special-typewriter/
 GITHUB: https://github.com/Jiezhi/myleetcode
 

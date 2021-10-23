@@ -2,6 +2,7 @@
 """
 CREATED AT: 2021/8/15
 Des:
+https://leetcode.com/problems/array-with-elements-not-equal-to-average-of-neighbors
 https://leetcode.com/contest/weekly-contest-254/problems/array-with-elements-not-equal-to-average-of-neighbors/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
