@@ -3,45 +3,52 @@
 Github: https://github.com/Jiezhi/myleetcode
 
 Created on 2019/10/17
+Updated on 2021/10/25
 
 Leetcode:  https://leetcode.com/problems/min-stack/
 
 https://leetcode.com/explore/learn/card/queue-stack/230/usage-stack/1360/
 
+Difficulty: Easy
+
+Tags: Design
 """
+import collections
 
 
 class MinStack:
+    """
+    Updated on 2021/10/25
+    Runtime: 85 ms, faster than 46.80%
+    Memory Usage: 18 MB, less than 80.67%
+    -2**31 <= val <= 23**1 - 1
+    Methods pop, top and getMin operations will always be called on non-empty stacks.
+    At most 3 * 10**4 calls will be made to push, pop, top, and getMin.
+    """
 
     def __init__(self):
-        """
-        initialize your data structure here.
-        """
-        self.stack = []
+        self.data_stack = collections.deque()
+        self.min_stack = collections.deque()
 
-    def push(self, x: int) -> None:
-        self.stack.append(x)
+    def push(self, val: int) -> None:
+        self.data_stack.append(val)
+        if len(self.min_stack) == 0:
+            self.min_stack.append(val)
+        else:
+            self.min_stack.append(min(val, self.min_stack[-1]))
 
     def pop(self) -> None:
-        if self.stack:
-            del self.stack[-1]
+        if len(self.data_stack) > 0:
+            self.data_stack.pop()
+            self.min_stack.pop()
 
     def top(self) -> int:
-        if self.stack:
-            x = self.stack[len(self.stack) - 1]
-            return x
-        else:
-            return None
+        if len(self.data_stack) > 0:
+            return self.data_stack[-1]
 
     def getMin(self) -> int:
-        if self.stack:
-            m = self.stack[0]
-            for i in self.stack:
-                if i < m:
-                    m = i
-            return m
-        else:
-            return None
+        if len(self.min_stack) > 0:
+            return self.min_stack[-1]
 
 
 # Your MinStack object will be instantiated and called as such:
