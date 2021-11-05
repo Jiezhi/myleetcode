@@ -3,6 +3,7 @@
 CREATED AT: 2021/10/30
 Des:
 
+https://leetcode.com/problems/kth-distinct-string-in-an-array/
 https://leetcode.com/contest/biweekly-contest-64/problems/kth-distinct-string-in-an-array/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
