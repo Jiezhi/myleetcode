@@ -3,6 +3,7 @@
 CREATED AT: 2021/11/7
 Des:
 
+https://leetcode.com/problems/count-vowel-substrings-of-a-string
 https://leetcode.com/contest/weekly-contest-266/problems/count-vowel-substrings-of-a-string/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
