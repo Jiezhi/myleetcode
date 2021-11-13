@@ -8,6 +8,8 @@ Leetcode: https://leetcode.com/problems/daily-temperatures/
 
 https://leetcode.com/explore/learn/card/queue-stack/230/usage-stack/1363/
 
+Difficulty: Medium
+
 """
 from typing import List
 
@@ -29,10 +31,12 @@ class Solution:
 
     def dailyTemperatures2(self, temperatures: List[int]) -> List[int]:
         """
+        Runtime: 1239 ms, faster than 67.44%
+        Memory Usage: 24.4 MB, less than 97.35%
         如果顺序处理，虽然能得出结果，但肯定超时
         所以要反过来处理，通过观测可以发现，如果当前处理的数 T[i]大于后面比较的数T[j]，则可以直接比较T[j]对应的结果 s 个位数后的结果 T[j+s]
         此外，可以用一个变量标识当前处理数T[i]右边最大的数max，如果 T[i] >= max，那么 T[i] 对应的数肯定是0了。
-        :param T:
+        :param temperatures:
         :return:
         """
         ret = [0]
