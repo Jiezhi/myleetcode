@@ -27,7 +27,7 @@ class Solution:
         ret.append(0)
         return ret
 
-    def dailyTemperatures2(self, T: List[int]) -> List[int]:
+    def dailyTemperatures2(self, temperatures: List[int]) -> List[int]:
         """
         如果顺序处理，虽然能得出结果，但肯定超时
         所以要反过来处理，通过观测可以发现，如果当前处理的数 T[i]大于后面比较的数T[j]，则可以直接比较T[j]对应的结果 s 个位数后的结果 T[j+s]
@@ -36,11 +36,11 @@ class Solution:
         :return:
         """
         ret = [0]
-        l = len(T)
+        l = len(temperatures)
         for i in range(l - 2, -1, -1):
             j = i + 1
             while j <= l:
-                if T[j] > T[i]:
+                if temperatures[j] > temperatures[i]:
                     ret.append(j - i)
                     break
                 elif ret[l - j - 1] == 0:
