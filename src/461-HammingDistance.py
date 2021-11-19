@@ -14,9 +14,8 @@ class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
         """
         149 / 149 test cases passed.
-        Status: Accepted
-        Runtime: 32 ms
-        Memory Usage: 14.3 MB
+        Runtime: 32 ms, faster than 62.28%
+        Memory Usage: 14.3 MB, less than 44.82%
         :param x:
         :param y:
         :return:
