@@ -25,10 +25,8 @@ class Solution:
     def searchInsert2(self, nums: List[int], target: int) -> int:
         """
         20210824 do it again
-        62 / 62 test cases passed.
-        Status: Accepted
-        Runtime: 44 ms
-        Memory Usage: 15.2 MB
+        Runtime: 63 ms, faster than 22.19%
+        Memory Usage: 15 MB, less than 56.94%
         :param nums:
         :param target:
         :return:
