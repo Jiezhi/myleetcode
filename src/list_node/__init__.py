@@ -42,6 +42,21 @@ def buildListNode(nums):
     return ret.next
 
 
+def buildCycleList(nums, pos):
+    if pos == -1:
+        return buildListNode(nums)
+    if pos >= len(nums):
+        return None
+    ret = tmp = ListNode(0)
+    for i in range(len(nums)):
+        tmp.next = ListNode(nums[i])
+        tmp = tmp.next
+        if i == pos:
+            cycle_entry = tmp
+    tmp.next = cycle_entry
+    return ret.next
+
+
 def printData(l):
     while l:
         print(l.val)
@@ -50,4 +65,6 @@ def printData(l):
 
 
 if __name__ == '__main__':
-    print(buildListNode([1, 2]) == buildListNode([1, 2]))
+    assert buildListNode([1, 2]) == buildListNode([1, 2])
+    ret = buildCycleList([0, 1, 2, 3, 4], 0)
+    assert ret.val == 0
