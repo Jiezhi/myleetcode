@@ -22,7 +22,7 @@ class Solution:
         """
         Runtime: 50 ms, faster than 91.86% of Python3
         Memory Usage: 16.2 MB, less than 65.52% of Python3
-        
+
         The number of nodes in the tree is in the range [0, 10^4].
         -1000 <= Node.val <= 1000
         :param root:
