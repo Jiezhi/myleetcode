@@ -3,6 +3,7 @@
 CREATED AT: 2021/10/31
 Des:
 
+https://leetcode.com/problems/smallest-index-with-equal-value
 https://leetcode.com/contest/weekly-contest-265/problems/smallest-index-with-equal-value
 GITHUB: https://github.com/Jiezhi/myleetcode
 
