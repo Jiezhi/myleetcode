@@ -2,3 +2,6 @@
 leetcode.code-workspace
 __pycache__
 /todo*
+.idea
+venv
+.DS_Store
