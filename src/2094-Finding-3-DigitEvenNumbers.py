@@ -3,6 +3,7 @@
 CREATED AT: 2021/12/5
 Des:
 
+https://leetcode.com/problems/finding-3-digit-even-numbers
 https://leetcode.com/contest/weekly-contest-270/problems/finding-3-digit-even-numbers/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
