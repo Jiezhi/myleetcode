@@ -8,7 +8,7 @@ GITHUB: https://github.com/Jiezhi/myleetcode
 
 Difficulty: Easy
 
-Tag: 
+Tag: Bit
 
 See: 1009
 
