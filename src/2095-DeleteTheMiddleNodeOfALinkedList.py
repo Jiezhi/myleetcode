@@ -3,6 +3,7 @@
 CREATED AT: 2021/12/5
 Des:
 
+https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list
 https://leetcode.com/contest/weekly-contest-270/problems/delete-the-middle-node-of-a-linked-list/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
