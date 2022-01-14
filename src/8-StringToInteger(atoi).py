@@ -7,16 +7,20 @@ Created on 2018-12-04
 
 Reference: 
 """
+import re
 
 
 class Solution:
-    def myAtoi(self, str):
+    def myAtoi(self, s: str) -> int:
         """
+        Runtime: 32 ms, faster than 86.58%
+        Memory Usage: 14.2 MB, less than 81.95%
+
         :type str: str
         :rtype: int
         """
-        import re
-        match = re.match(r'[-|+]?\d+', str.strip())
+
+        match = re.match(r'[-|+]?\d+', s.strip())
         if not match:
             return 0
         num = int(match.group())
@@ -34,3 +38,7 @@ def test():
     assert Solution().myAtoi('words and 987') == 0
     assert Solution().myAtoi('-91283472332') == -2147483648
     assert Solution().myAtoi('+1') == 1
+
+
+if __name__ == '__main__':
+    test()
