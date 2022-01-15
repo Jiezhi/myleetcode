@@ -3,6 +3,7 @@
 CREATED AT: 2022/1/9
 Des:
 
+https://leetcode.com/problems/count-words-obtained-after-adding-a-letter
 https://leetcode.com/contest/weekly-contest-275/problems/count-words-obtained-after-adding-a-letter/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
