@@ -2,6 +2,7 @@
 """
 CREATED AT: 2022/1/9
 Des:
+https://leetcode.com/problems/check-if-every-row-and-column-contains-all-numbers
 https://leetcode.com/contest/weekly-contest-275/problems/check-if-every-row-and-column-contains-all-numbers/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
