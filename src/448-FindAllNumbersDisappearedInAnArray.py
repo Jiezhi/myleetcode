@@ -4,6 +4,7 @@ CREATED AT: 2021/11/18
 Des:
 
 https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
+https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3270/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
 Difficulty: Easy
