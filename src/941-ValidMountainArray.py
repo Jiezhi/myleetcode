@@ -14,6 +14,31 @@ from typing import List
 
 class Solution:
     def validMountainArray(self, arr: List[int]) -> bool:
+        """
+        Updated at 2022/01/25
+        Runtime: 422 ms, faster than 5.11%
+        Memory Usage: 15.3 MB, less than 97.67%
+        1 <= arr.length <= 10^4
+        0 <= arr[i] <= 10^4
+        :param arr:
+        :return:
+        """
+        if len(arr) < 3:
+            return False
+        if arr[1] <= arr[0]:
+            return False
+        flag = False
+        for i in range(2, len(arr)):
+            if arr[i] == arr[i - 1]:
+                return False
+            if not flag and arr[i] < arr[i - 1]:
+                flag = True
+            elif flag and arr[i] > arr[i - 1]:
+                return False
+
+        return flag
+
+    def validMountainArray2(self, arr: List[int]) -> bool:
         if len(arr) < 3:
             return False
         incr = True
@@ -33,6 +58,7 @@ class Solution:
 
 
 def test():
+    assert not Solution().validMountainArray([1, 2, 3, 4])
     assert not Solution().validMountainArray([2, 1])
     assert not Solution().validMountainArray([3, 5, 5])
     assert not Solution().validMountainArray([3, 5, 5, 4])
