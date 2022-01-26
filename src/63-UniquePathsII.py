@@ -4,6 +4,7 @@ CREATED AT: 2021/10/12
 Des:
 https://leetcode.com/problems/unique-paths-ii/
 https://leetcode.com/study-plan/dynamic-programming/
+https://leetcode.com/explore/featured/card/dynamic-programming/634/matrix-path-based-dp/4131/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
 Difficulty: Medium
@@ -16,6 +17,7 @@ from typing import List
 class Solution:
     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
         """
+        CREATED AT: 2021/10/12
         Runtime: 70 ms, faster than 14.61%
         Memory Usage: 14.3 MB, less than 60.08%
         :param obstacleGrid:

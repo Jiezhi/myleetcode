@@ -4,6 +4,7 @@ CREATED AT: 2021/10/9
 Des:
 https://leetcode.com/problems/minimum-path-sum/
 https://leetcode.com/study-plan/dynamic-programming/?progress=5pg8wic
+https://leetcode.com/problems/minimum-path-sum
 GITHUB: https://github.com/Jiezhi/myleetcode
 
 Difficulty: Medium
@@ -16,6 +17,7 @@ from typing import List
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
         """
+        CREATED AT: 2021/10/9
         61 / 61 test cases passed.
         Status: Accepted
         Runtime: 100 ms

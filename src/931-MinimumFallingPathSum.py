@@ -4,6 +4,7 @@ CREATED AT: 2021/10/12
 Des:
 https://leetcode.com/problems/minimum-falling-path-sum/
 https://leetcode.com/study-plan/dynamic-programming
+https://leetcode.com/explore/featured/card/dynamic-programming/634/matrix-path-based-dp/4133/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
 Difficulty: Medium
@@ -18,6 +19,7 @@ from typing import List
 class Solution:
     def minFallingPathSum(self, matrix: List[List[int]]) -> int:
         """
+        CREATED AT: 2021/10/12
         Runtime: 116 ms, faster than 76.52%
         Memory Usage: 15.2 MB, less than 38.08%
         n == matrix.length
