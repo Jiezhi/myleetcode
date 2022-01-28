@@ -4,6 +4,7 @@ CREATED AT: 2021/11/28
 Des:
 
 https://leetcode.com/problems/all-paths-from-source-to-target/
+https://leetcode.com/explore/learn/card/graph/619/depth-first-search-in-graph/3849/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
 Difficulty: Medium
@@ -14,13 +15,14 @@ See:
 """
 from typing import List
 
-from src.tool import equal_list_value, print_results
+from src.tool import print_results
 
 
 class Solution:
     @print_results
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
         """
+        CREATED AT: 2021/11/28
         Runtime: 116 ms, faster than 31.29%
         Memory Usage: 15.9 MB, less than 13.53%
         n == graph.length
