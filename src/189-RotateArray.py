@@ -13,6 +13,10 @@ from typing import List
 class Solution:
     def rotate(self, nums: List[int], k: int) -> None:
         """
+        Created on 2019/9/4
+        Runtime: 431 ms, faster than 24.14%
+        Memory Usage: 25.3 MB, less than 96.40%
+
         Do not return anything, modify nums in-place instead.
         """
         k %= len(nums)
