@@ -13,15 +13,59 @@ Tag:
 
 See: 
 
-Time Spent:  min
+Ref: https://leetcode.com/problems/path-with-minimum-effort/discuss/909017/JavaPython-Dijikstra-Binary-search-Clean-and-Concise
 """
 import collections
+import heapq
 import sys
 from typing import List
 
 
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        """
+        CREATED AT: 2022/2/9
+        75 / 75 test cases passed.
+        Status: Accepted
+        Runtime: 1148 ms, faster than 56.18%
+        Memory Usage: 15.2 MB, less than 92.80%
+        rows == heights.length
+        columns == heights[i].length
+        1 <= rows, columns <= 100
+        1 <= heights[i][j] <= 10^6
+        :param heights:
+        :return:
+        """
+        m, n = len(heights), len(heights[0])
+        cost = [[sys.maxsize for _ in range(n)] for _ in range(m)]
+        cost[0][0] = 0
+        heap = [(0, 0, 0)]
+        while heap:
+            c, i, j = heapq.heappop(heap)
+            if i == m - 1 and j == n - 1:
+                return c
+            if i > 0:
+                curr_cost = max(abs(heights[i][j] - heights[i - 1][j]), cost[i][j])
+                if cost[i - 1][j] > curr_cost:
+                    cost[i - 1][j] = curr_cost
+                    heapq.heappush(heap, (curr_cost, i - 1, j))
+            if j > 0:
+                curr_cost = max(abs(heights[i][j] - heights[i][j - 1]), cost[i][j])
+                if cost[i][j - 1] > curr_cost:
+                    cost[i][j - 1] = curr_cost
+                    heapq.heappush(heap, (curr_cost, i, j - 1))
+            if i < m - 1:
+                curr_cost = max(abs(heights[i][j] - heights[i + 1][j]), cost[i][j])
+                if cost[i + 1][j] > curr_cost:
+                    cost[i + 1][j] = curr_cost
+                    heapq.heappush(heap, (curr_cost, i + 1, j))
+            if j < n - 1:
+                curr_cost = max(abs(heights[i][j] - heights[i][j + 1]), cost[i][j])
+                if cost[i][j + 1] > curr_cost:
+                    cost[i][j + 1] = curr_cost
+                    heapq.heappush(heap, (curr_cost, i, j + 1))
+
+    def minimumEffortPath2(self, heights: List[List[int]]) -> int:
         """
         CREATED AT: 2022/2/9
         75 / 75 test cases passed.
