@@ -9,6 +9,8 @@ GITHUB: https://github.com/Jiezhi/myleetcode
 
 Reference: https://leetcode.com/problems/single-number/solution/
 """
+import functools
+import operator
 from typing import List
 
 
@@ -22,6 +24,17 @@ class Solution:
             a ^= n
         return a
 
+    def singleNumber3(self, nums: List[int]) -> int:
+        """
+        CREATED AT: 2022/2/15
+        Runtime: 217 ms, faster than 38.95%
+        Memory Usage: 16.8 MB, less than 10.15%
+        1 <= nums.length <= 3 * 10^4
+        -3 * 10^4 <= nums[i] <= 3 * 10^4
+        Each element in the array appears twice except for one element which appears only once.
+        """
+        return functools.reduce(operator.xor, nums)
+
 
 def test():
     assert Solution().singleNumber(nums=[2, 2, 1]) == 1
@@ -31,6 +44,10 @@ def test():
     assert Solution().singleNumber2(nums=[2, 2, 1]) == 1
     assert Solution().singleNumber2(nums=[4, 1, 2, 1, 2]) == 4
     assert Solution().singleNumber2(nums=[1]) == 1
+
+    assert Solution().singleNumber3(nums=[2, 2, 1]) == 1
+    assert Solution().singleNumber3(nums=[4, 1, 2, 1, 2]) == 4
+    assert Solution().singleNumber3(nums=[1]) == 1
 
 
 if __name__ == '__main__':
