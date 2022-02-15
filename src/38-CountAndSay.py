@@ -10,6 +10,35 @@ Reference:
 
 
 class Solution:
+    def countAndSay2(self, n: int) -> str:
+        """
+        CREATED AT: 2022/2/15
+        30 / 30 test cases passed.
+        Status: Accepted
+        Runtime: 40 ms, faster than 94.24%
+        Memory Usage: 14 MB, less than 78.47%
+        1 <= n <= 30
+        """
+        if n == 1:
+            return '1'
+        i = 1
+        ret = '1'
+        while i < n:
+            i += 1
+            pre_ret = ret
+            pre_c = pre_ret[0]
+            cnt = 1
+            ret = ''
+            for c in pre_ret[1:]:
+                if c == pre_c:
+                    cnt += 1
+                else:
+                    ret += f'{cnt}{pre_c}'
+                    pre_c = c
+                    cnt = 1
+            ret = f'{ret}{cnt}{pre_c}'
+        return ret
+
     def countAndSay(self, n):
         """
         :type n: int
@@ -38,3 +67,8 @@ def test():
     assert Solution().countAndSay(3) == "21"
     assert Solution().countAndSay(4) == "1211"
     assert Solution().countAndSay(5) == "111221"
+    assert Solution().countAndSay2(5) == "111221"
+
+
+if __name__ == '__main__':
+    test()
