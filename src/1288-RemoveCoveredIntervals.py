@@ -10,7 +10,9 @@ Difficulty: Medium
 
 Tag: 
 
-See: 
+See:
+
+Optimized Solution: https://github.com/Jiezhi/LCOF-Java/blob/main/src/main/java/io/github/jiezhi/lc/LC1288.java
 
 Time Spent:  min
 """
