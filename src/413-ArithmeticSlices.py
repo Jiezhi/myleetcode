@@ -17,8 +17,43 @@ from typing import List
 
 
 class Solution:
+    def numberOfArithmeticSlices2(self, nums: List[int]) -> int:
+        """
+        CREATED AT: 2022/03/03
+        Runtime: 66 ms, faster than 25.43%
+        Memory Usage: 14.1 MB, less than 75.02%
+
+        1 <= nums.length <= 5000
+        -1000 <= nums[i] <= 1000
+        """
+        # observe some examples, found that length of N arithmetic arrays would has (N-2)! subarrays
+        if len(nums) < 3:
+            return 0
+
+        @lru_cache(None)
+        def fib(n: int) -> int:
+            if n == 1:
+                return 1
+            return fib(n - 1) + n
+
+        ret = 0
+        pre_diff = nums[1] - nums[0]
+        sub_len = 2
+        for i in range(2, len(nums)):
+            if nums[i] - nums[i - 1] == pre_diff:
+                sub_len += 1
+            else:
+                if sub_len >= 3:
+                    ret += fib(sub_len - 2)
+                sub_len = 2
+                pre_diff = nums[i] - nums[i - 1]
+        if sub_len >= 3:
+            ret += fib(sub_len - 2)
+        return ret
+
     def numberOfArithmeticSlices(self, nums: List[int]) -> int:
         """
+        CREATED AT: 2021/10/13
         Runtime: 56 ms, faster than 25.78%
         Memory Usage: 14.3 MB, less than 90.74%
 
@@ -70,6 +105,10 @@ def test():
     assert Solution().numberOfArithmeticSlices(nums=[1, 2, 3]) == 1
     assert Solution().numberOfArithmeticSlices(nums=[1, 2, 3, 4]) == 3
     assert Solution().numberOfArithmeticSlices(nums=[1]) == 0
+
+    assert Solution().numberOfArithmeticSlices2(nums=[1, 2, 3]) == 1
+    assert Solution().numberOfArithmeticSlices2(nums=[1, 2, 3, 4]) == 3
+    assert Solution().numberOfArithmeticSlices2(nums=[1]) == 0
 
 
 if __name__ == '__main__':
