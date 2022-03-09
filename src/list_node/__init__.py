@@ -33,6 +33,10 @@ class ListNode:
             node = node.next
         return str(ret)
 
+    @classmethod
+    def from_list(cls, param):
+        return buildListNode(param)
+
 
 def buildListNode(nums):
     ret = tmp = ListNode(0)
