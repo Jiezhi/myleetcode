@@ -11,6 +11,16 @@ GITHUB: https://github.com/Jiezhi/myleetcode
 
 
 class Solution:
+    def hammingWeight2(self, n: int) -> int:
+        """
+        Runtime: 61 ms, faster than 13.99%
+        Memory Usage: 13.8 MB, less than 53.47%
+
+        :param n: The input must be a binary string of length 32.
+        :return:
+        """
+        return n.bit_count()
+
     def hammingWeight(self, n: int) -> int:
         """
         601 / 601 test cases passed.
@@ -25,6 +35,7 @@ class Solution:
 
 def test():
     assert Solution().hammingWeight(n=0x00000000000000000000000000001011) == 3
+    assert Solution().hammingWeight2(n=0x00000000000000000000000000001011) == 3
 
 
 if __name__ == '__main__':
