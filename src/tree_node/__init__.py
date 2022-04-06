@@ -33,6 +33,10 @@ class TreeNode:
     def __repr__(self):
         return str(get_tree_node_list(self))
 
+    @classmethod
+    def from_list(cls, param):
+        return build_tree_node(param)
+
 
 def build_tree_node(nums) -> TreeNode:
     if not nums:
