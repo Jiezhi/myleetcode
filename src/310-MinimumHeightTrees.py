@@ -17,10 +17,44 @@ Ref: https://leetcode.com/problems/minimum-height-trees/solution/
 
 Time Spent:  min
 """
+import collections
 from typing import List
 
 
 class Solution:
+    def findMinHeightTrees2(self, n: int, edges: List[List[int]]) -> List[int]:
+        """
+        CREATED AT: 2022/4/6
+        Runtime: 128 ms, faster than 83.86%
+        Memory Usage: 26.7 MB, less than 8.64%
+        :param n:
+        :param edges:
+        :return:
+        """
+        if n == 1:
+            return [0]
+        cnt = [0] * n
+        adj = collections.defaultdict(set)
+
+        for x, y in edges:
+            cnt[x] += 1
+            cnt[y] += 1
+            adj[x].add(y)
+            adj[y].add(x)
+
+        dq = [i for i in range(n) if cnt[i] == 1]
+        remain = n
+        while remain > 2:
+            remain -= len(dq)
+            tmp_dq = dq
+            dq = []
+            for v in tmp_dq:
+                for node in adj[v]:
+                    cnt[node] -= 1
+                    if cnt[node] == 1:
+                        dq.append(node)
+        return dq
+
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
         """
         CREATED AT: 2022/2/9
