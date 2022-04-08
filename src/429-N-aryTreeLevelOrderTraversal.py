@@ -15,6 +15,26 @@ from ntree_node import Node
 
 
 class Solution:
+    def levelOrder2(self, root: 'Node') -> List[List[int]]:
+        """
+        执行用时：44 ms, 在所有 Python3 提交中击败了98.00%的用户
+        内存消耗：16.9 MB, 在所有 Python3 提交中击败了36.93%的用户
+        The height of the n-ary tree is less than or equal to 1000
+        The total number of nodes is between [0, 104]
+        """
+        if not root:
+            return []
+        cur_level = [root]
+        ret = []
+        while cur_level:
+            new_level = []
+            ret.append([x.val for x in cur_level])
+            for node in cur_level:
+                if node.children:
+                    new_level += node.children
+            cur_level = new_level
+        return ret
+
     def levelOrder(self, root: 'Node') -> List[List[int]]:
         """
         38 / 38 test cases passed.
@@ -42,13 +62,13 @@ class Solution:
                 # if current_level is None or empty, then there's no node left to get
                 break
         ret = [[x.val for x in level] for level in level_node]
-        print(ret)
         return ret
 
 
 def test():
     assert Solution().levelOrder(Node()) == []
     assert Solution().levelOrder(Node(val=1)) == [[1]]
+    assert Solution().levelOrder2(Node(val=1)) == [[1]]
     # TODO build nary tree from list
     # [0,null,10,2,null,1,9,1,null,2,0,4,2,null,6,8,0,null,9,10,null,3,1,7,null,9,8,1,2,6,null,6,7,10,null,7,null,null,4,null,4,10,8,7,10,null,null,6,0,null,3,null,8,7,3,null,8,null,0,7,3,null,null,null,0,4,4,2,null,9,5,1,4,0,null,1,4,9,10,3,null,null,7,7,0,8,1,null,3,2,10,null,2,4,0]
     # [[0],[10,2],[1,9,1,2,0,4,2],[6,8,0,9,10,3,1,7,9,8,1,2,6,6,7,10,7],[4,4,10,8,7,10,6,0,3,8,7,3,8,0,7,3,0,4,4,2,9,5,1,4,0,1,4,9,10,3,7,7,0,8,1,3,2,10,2,4,0]]
