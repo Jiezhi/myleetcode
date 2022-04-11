@@ -29,7 +29,13 @@ class NumArray:
 
 class NumArray2:
     """
+    Runtime: 109 ms, faster than 69.05%
+    Memory Usage: 17.7 MB, less than 33.19%
 
+    1 <= nums.length <= 10^4
+    -10^5 <= nums[i] <= 10^5
+    0 <= left <= right < nums.length
+    At most 10^4 calls will be made to sumRange.
     """
 
     def __init__(self, nums: List[int]):
