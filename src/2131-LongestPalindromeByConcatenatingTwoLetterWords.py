@@ -2,7 +2,7 @@
 """
 CREATED AT: 2022/1/8
 Des:
-
+https://leetcode.com/problems/longest-palindrome-by-concatenating-two-letter-words/
 https://leetcode.com/contest/biweekly-contest-69/problems/longest-palindrome-by-concatenating-two-letter-words/
 GITHUB: https://github.com/Jiezhi/myleetcode
 

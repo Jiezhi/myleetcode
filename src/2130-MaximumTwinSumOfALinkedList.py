@@ -3,6 +3,7 @@
 CREATED AT: 2022/1/8
 Des:
 
+https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/
 https://leetcode.com/contest/biweekly-contest-69/problems/maximum-twin-sum-of-a-linked-list/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
@@ -12,14 +13,8 @@ Tag:
 
 See: 
 
-Time Spent:  min
 """
 
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
 from typing import Optional
 
 from src.list_node import ListNode, buildListNode
