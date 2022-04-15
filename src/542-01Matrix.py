@@ -8,10 +8,47 @@ https://leetcode.com/explore/challenge/card/july-leetcoding-challenge-2021/612/w
 GITHUB: https://github.com/Jiezhi/myleetcode
 
 """
+import collections
 from typing import List
 
 
 class Solution:
+    def updateMatrix2(self, mat: List[List[int]]) -> List[List[int]]:
+        """
+        Updated at 2022/4/15
+        Runtime: 869 ms, faster than 54.07%
+        Memory Usage: 19.8 MB, less than 6.29%
+
+        m == mat.length
+        n == mat[i].length
+        1 <= m, n <= 10^4
+        1 <= m * n <= 10^4
+        mat[i][j] is either 0 or 1.
+        There is at least one 0 in mat.
+        :param mat:
+        :return:
+        """
+        m, n = len(mat), len(mat[0])
+        MAX = m * n
+        ret = [[MAX for _ in range(n)] for _ in range(m)]
+
+        dir = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+        dq = collections.deque()
+        for i in range(m):
+            for j in range(n):
+                if mat[i][j] == 0:
+                    dq.append((i, j, 0))
+        seen = set()
+        while dq:
+            x, y, d = dq.popleft()
+            if (x, y) in seen or not 0 <= x < m or not 0 <= y < n:
+                continue
+            ret[x][y] = d
+            seen.add((x, y))
+            for dx, dy in dir:
+                dq.append((x + dx, y + dy, d + 1))
+        return ret
+
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
         """
         49 / 49 test cases passed.
@@ -69,7 +106,7 @@ def test():
     assert Solution().updateMatrix(mat=[[0], [1]]) == [[0], [1]]
     assert Solution().updateMatrix(mat=[[0, 0, 0], [0, 1, 0], [0, 0, 0]]) == [[0, 0, 0], [0, 1, 0], [0, 0, 0]]
     assert Solution().updateMatrix(mat=[[0, 0, 0], [0, 1, 0], [1, 1, 1]]) == [[0, 0, 0], [0, 1, 0], [1, 2, 1]]
-    assert Solution().updateMatrix(
+    assert Solution().updateMatrix2(
         mat=[[1, 1, 0, 0, 1, 0, 0, 1, 1, 0], [1, 0, 0, 1, 0, 1, 1, 1, 1, 1], [1, 1, 1, 0, 0, 1, 1, 1, 1, 0],
              [0, 1, 1, 1, 0, 1, 1, 1, 1, 1], [0, 0, 1, 1, 1, 1, 1, 1, 1, 0], [1, 1, 1, 1, 1, 1, 0, 1, 1, 1],
              [0, 1, 1, 1, 1, 1, 1, 0, 0, 1], [1, 1, 1, 1, 1, 0, 0, 1, 1, 1], [0, 1, 0, 1, 1, 0, 1, 1, 1, 1],
