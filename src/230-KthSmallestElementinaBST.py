@@ -14,6 +14,28 @@ from tree_node import TreeNode
 
 
 class Solution:
+    def kthSmallest2(self, root: Optional[TreeNode], k: int) -> int:
+        """
+        Runtime: 44 ms, faster than 98.45%
+        Memory Usage: 18 MB, less than 48.12%
+
+        The number of nodes in the tree is n.
+        1 <= k <= n <= 10^4
+        0 <= Node.val <= 10^4
+        """
+
+        def inorder(node):
+            if node:
+                yield from inorder(node.left)
+                yield node.val
+                yield from inorder(node.right)
+
+        for i in inorder(root):
+            if k > 1:
+                k -= 1
+            else:
+                return i
+
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         """
         93 / 93 test cases passed.
@@ -44,6 +66,9 @@ def test():
     null = None
     assert Solution().kthSmallest(root=tree_node.build_tree_node([3, 1, 4, null, 2]), k=1) == 1
     assert Solution().kthSmallest(root=tree_node.build_tree_node([5, 3, 6, 2, 4, null, null, 1]), k=3) == 3
+    
+    assert Solution().kthSmallest2(root=tree_node.build_tree_node([3, 1, 4, null, 2]), k=1) == 1
+    assert Solution().kthSmallest2(root=tree_node.build_tree_node([5, 3, 6, 2, 4, null, null, 1]), k=3) == 3
 
 
 if __name__ == '__main__':
