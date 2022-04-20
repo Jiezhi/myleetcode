@@ -13,6 +13,43 @@ from typing import Optional
 from tree_node import TreeNode, build_tree_node
 
 
+class BSTIterator2:
+    """
+    AC: 04/20/2022 15:25
+    Runtime: 88 ms, faster than 63.31%
+    Memory Usage: 20.4 MB, less than 63.85%
+
+    The number of nodes in the tree is in the range [1, 10^5].
+    0 <= Node.val <= 10^6
+    At most 10^5 calls will be made to hasNext, and next.
+    """
+
+    def __init__(self, root: Optional[TreeNode]):
+        self.cur = root
+
+    def next(self) -> int:
+        while self.cur:
+            if self.cur.left:
+                tmp = self.cur.left
+                while tmp.right and tmp.right != self.cur:
+                    tmp = tmp.right
+                if tmp.right == self.cur:
+                    tmp.right = None
+                    ret = self.cur.val
+                    self.cur = self.cur.right
+                    return ret
+                else:
+                    tmp.right = self.cur
+                    self.cur = self.cur.left
+            else:
+                ret = self.cur.val
+                self.cur = self.cur.right
+                return ret
+
+    def hasNext(self) -> bool:
+        return self.cur is not None
+
+
 class BSTIterator:
     """
     61 / 61 test cases passed.
