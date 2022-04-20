@@ -47,6 +47,29 @@ class Solution:
         longest_len = max(len(subs), longest_len)
         return longest_len
 
+    def lengthOfLongestSubstring3(self, s: str) -> int:
+        """
+        Update at 2022/04/20
+        Runtime: 90 ms, faster than 55.33%
+        Memory Usage: 14 MB, less than 94.07%
+        0 <= s.length <= 5 * 10^4
+        s consists of English letters, digits, symbols and spaces.
+        """
+        if len(s) < 2:
+            return len(s)
+        ret = 0
+        char_set = set()
+        l, r = 0, 0
+        while r < len(s):
+            if s[r] in char_set:
+                char_set.remove(s[l])
+                l += 1
+            else:
+                char_set.add(s[r])
+                r += 1
+                ret = max(ret, len(char_set))
+        return ret
+
 
 def test():
     assert Solution().lengthOfLongestSubstring('abcdcfge') == 5
@@ -56,6 +79,11 @@ def test():
     assert Solution().lengthOfLongestSubstring2(s="bbbbb") == 1
     assert Solution().lengthOfLongestSubstring2(s="pwwkew") == 3
     assert Solution().lengthOfLongestSubstring2('abcdcfge') == 5
+
+    assert Solution().lengthOfLongestSubstring3(s="abcabcbb") == 3
+    assert Solution().lengthOfLongestSubstring3(s="bbbbb") == 1
+    assert Solution().lengthOfLongestSubstring3(s="pwwkew") == 3
+    assert Solution().lengthOfLongestSubstring3('abcdcfge') == 5
 
 
 if __name__ == '__main__':
