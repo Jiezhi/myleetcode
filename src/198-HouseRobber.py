@@ -15,7 +15,7 @@ from tool import print_results
 
 class Solution:
     @print_results
-    def rob(self, nums: List[int]) -> int:
+    def rob2(self, nums: List[int]) -> int:
         """
         68 / 68 test cases passed.
         Status: Accepted
@@ -30,6 +30,21 @@ class Solution:
         for i in range(2, n + 1):
             dp[i] = max(nums[i - 1] + dp[i - 2], dp[i - 1])
         return dp[n]
+
+    def rob(self, nums: List[int]) -> int:
+        """
+        Update: 04/20/2022 11:28
+        Runtime: 40 ms, faster than 61.84%
+        Memory Usage: 13.9 MB, less than 22.28%
+        1 <= nums.length <= 100
+        0 <= nums[i] <= 400
+        """
+        dp1 = 0
+        dp2 = nums[0]
+
+        for i in range(1, len(nums)):
+            dp2, dp1 = max(dp2, dp1 + nums[i]), dp2
+        return dp2
 
 
 def test():
