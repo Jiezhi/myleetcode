@@ -50,7 +50,7 @@ class Solution:
 
 
 def test():
-    pass
+    assert Solution().isAlienSorted(words=["hello", "leetcode"], order="hlabcdefgijkmnopqrstuvwxyz")
 
 
 if __name__ == '__main__':
