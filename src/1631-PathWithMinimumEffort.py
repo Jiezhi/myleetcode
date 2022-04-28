@@ -17,11 +17,42 @@ Ref: https://leetcode.com/problems/path-with-minimum-effort/discuss/909017/JavaP
 """
 import collections
 import heapq
+import math
 import sys
 from typing import List
 
 
 class Solution:
+    def minimumEffortPath3(self, heights: List[List[int]]) -> int:
+        """
+        04/28/2022
+        75 / 75 test cases passed.
+        Status: Accepted
+        Runtime: 870 ms, faster than 80.07%
+        Memory Usage: 15.5 MB, less than 71.24%
+
+        rows == heights.length
+        columns == heights[i].length
+        1 <= rows, columns <= 100
+        1 <= heights[i][j] <= 10^6
+        """
+        m, n = len(heights), len(heights[0])
+        ret = [[math.inf for _ in range(n)] for _ in range(m)]
+        ds = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        nodes = [(0, 0, 0)]
+        while nodes:
+            cost, x, y = heapq.heappop(nodes)
+            if cost >= ret[x][y]:
+                continue
+            ret[x][y] = cost
+            for dx, dy in ds:
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < m and 0 <= ny < n:
+                    ncost = max(cost, abs(heights[x][y] - heights[nx][ny]))
+                    if ncost < ret[nx][ny]:
+                        heapq.heappush(nodes, (ncost, nx, ny))
+        return ret[-1][-1]
+
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
         """
         CREATED AT: 2022/2/9
@@ -124,6 +155,8 @@ class Solution:
 def test():
     assert Solution().minimumEffortPath(heights=[[1, 2, 2], [3, 8, 2], [5, 3, 5]]) == 2
     assert Solution().minimumEffortPath(heights=[[1, 2, 3], [3, 8, 4], [5, 3, 5]]) == 1
+    assert Solution().minimumEffortPath2(heights=[[1, 2, 3], [3, 8, 4], [5, 3, 5]]) == 1
+    assert Solution().minimumEffortPath3(heights=[[1, 2, 3], [3, 8, 4], [5, 3, 5]]) == 1
     assert Solution().minimumEffortPath(
         heights=[[1, 2, 1, 1, 1],
                  [1, 2, 1, 2, 1],
