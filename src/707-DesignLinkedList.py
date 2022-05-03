@@ -35,7 +35,7 @@ class MyLinkedList:
             while i < index:
                 tmp_node = tmp_node.next
                 i += 1
-            return tmp_node.val
+            return tmp_node.val if tmp_node else -1
 
     def addAtHead(self, val: int) -> None:
         """
@@ -102,7 +102,6 @@ class MyLinkedList:
         while tmp_node:
             val_list.append(tmp_node.val)
             tmp_node = tmp_node.next
-        print(val_list)
         return val_list
 
 
