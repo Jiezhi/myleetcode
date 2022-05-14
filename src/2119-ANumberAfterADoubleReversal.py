@@ -4,6 +4,7 @@ CREATED AT: 2021/12/26
 Des:
 
 https://leetcode.com/contest/weekly-contest-273/problems/a-number-after-a-double-reversal
+https://leetcode.com/problems/a-number-after-a-double-reversal/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
 Difficulty: Easy
