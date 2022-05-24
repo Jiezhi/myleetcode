@@ -2,7 +2,7 @@
 """
 CREATED AT: 2022/1/22
 Des:
-
+https://leetcode.com/problems/minimum-cost-of-buying-candies-with-discount/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
 Difficulty: Easy
