@@ -21,12 +21,33 @@ See:
 
 Time Spent:  min
 """
+import bisect
 from functools import lru_cache
 from typing import List
 
 
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
+        """
+        CREATED AT: 2022/5/25
+        Runtime: 118 ms, faster than 80.84%
+        Memory Usage: 14.2 MB, less than 48.57%
+        1 <= nums.length <= 2500
+        -10^4 <= nums[i] <= 10^4
+        :param nums:
+        :return:
+        """
+        ret = [nums[0]]
+
+        for num in nums[1:]:
+            if num > ret[-1]:
+                ret.append(num)
+            else:
+                pos = bisect.bisect_left(ret, num)
+                ret[pos] = num
+        return len(ret)
+
+    def lengthOfLIS3(self, nums: List[int]) -> int:
         """
         CREATED AT: 2022/1/24
         Runtime: 4446 ms, faster than 26.80%
