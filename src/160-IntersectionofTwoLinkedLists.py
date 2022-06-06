@@ -9,11 +9,50 @@ GITHUB: https://github.com/Jiezhi/myleetcode
 
 """
 import collections
+from typing import Optional
 
 from list_node import ListNode, buildListNode
 
 
 class Solution:
+    def getIntersectionNode2(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+        """
+        AC: 06/06/2022
+        Runtime: 213 ms, faster than 48.04%
+        Memory Usage: 29.5 MB, less than 69.35%
+        :param headA:
+        :param headB:
+        The number of nodes of listA is in the m.
+        The number of nodes of listB is in the n.
+        1 <= m, n <= 3 * 10^4
+        1 <= Node.val <= 10^5
+        0 <= skipA < m
+        0 <= skipB < n
+        intersectVal is 0 if listA and listB do not intersect.
+        intersectVal == listA[skipA] == listB[skipB] if listA and listB intersect.
+        :return:
+        """
+        tailA = headA
+        while tailA.next:
+            tailA = tailA.next
+
+        tailA.next = headB
+        # if two list has intersection, then there would be cycle in the headA list now.
+        fast, slow = headA.next.next, headA.next
+        while fast and fast.next and fast != slow:
+            fast = fast.next.next
+            slow = slow.next
+        if not fast or not fast.next:
+            tailA.next = None
+            return None
+
+        fast = headA
+        while fast != slow:
+            fast = fast.next
+            slow = slow.next
+        tailA.next = None
+        return slow
+
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
         """
         39 / 39 test cases passed.
