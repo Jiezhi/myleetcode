@@ -9,6 +9,14 @@ https://leetcode.com/explore/interview/card/top-interview-questions-medium/103/a
 
 
 class Solution:
+    def lengthOfLongestSubstring4(self, s: str) -> int:
+        """
+        0 <= s.length <= 5 * 10^4
+        s consists of English letters, digits, symbols and spaces.
+        """
+
+
+
     def lengthOfLongestSubstring(self, s):
         """
         :type s: str

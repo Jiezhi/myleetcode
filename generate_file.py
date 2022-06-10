@@ -7,10 +7,16 @@ parent_path = 'src/'
 file_template = """#!/usr/bin/env python3
 \"\"\"
 CREATED AT: {DATE}
-Des:
+
+URL:
+
 GITHUB: https://github.com/Jiezhi/myleetcode
 
+FileName: {NAME}
+
 Difficulty: 
+
+Desc: 
 
 Tag: 
 
@@ -36,7 +42,7 @@ if __name__ == '__main__':
     path = os.path.join(parent_path, fn + '.py')
     if not os.path.exists(path):
         with open(path, 'w') as f:
-            f.write(file_template.format(DATE=date.today()))
+            f.write(file_template.format(DATE=date.today(), NAME=fn))
         print(f'generated file at {path}')
     else:
         print('file already exists', path)
