@@ -34,7 +34,6 @@ if __name__ == '__main__':
 
 """
 if __name__ == '__main__':
-    print(sys.argv)
     name = ' '.join(sys.argv[1:])
     # name = "84. Largest Rectangle in Histogram"
     print(name)
