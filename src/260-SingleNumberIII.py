@@ -17,8 +17,7 @@ See: LCOF40
 from functools import reduce
 from typing import List
 
-from src import tool
-from src.tool import print_results
+from tool import print_results, equal_list_value
 
 
 class Solution:
@@ -51,8 +50,8 @@ class Solution:
 
 
 def test():
-    assert tool.equal_list_value(Solution().singleNumber(nums=[1, 2, 1, 3, 2, 5]), [3, 5])
-    assert tool.equal_list_value(Solution().singleNumber(nums=[-1, 0]), [-1, 0])
+    assert equal_list_value(Solution().singleNumber(nums=[1, 2, 1, 3, 2, 5]), [3, 5])
+    assert equal_list_value(Solution().singleNumber(nums=[-1, 0]), [-1, 0])
 
 
 if __name__ == '__main__':

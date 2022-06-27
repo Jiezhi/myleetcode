@@ -15,7 +15,7 @@ See:
 
 from typing import Optional
 
-from src.list_node import ListNode
+from list_node import ListNode
 
 
 class Solution:

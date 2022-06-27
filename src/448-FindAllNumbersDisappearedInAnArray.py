@@ -15,7 +15,7 @@ See:
 """
 from typing import List
 
-from src import tool
+from tool import equal_list_value
 
 
 class Solution:
@@ -35,7 +35,7 @@ class Solution:
 
 
 def test():
-    assert tool.equal_list_value(Solution().findDisappearedNumbers(nums=[4, 3, 2, 7, 8, 2, 3, 1]), [5, 6])
+    assert equal_list_value(Solution().findDisappearedNumbers(nums=[4, 3, 2, 7, 8, 2, 3, 1]), [5, 6])
     assert Solution().findDisappearedNumbers(nums=[1, 1]) == [2]
 
 

@@ -16,7 +16,7 @@ See:
 
 from typing import Optional, List
 
-from src.tree_node import TreeNode
+from tree_node import TreeNode
 
 
 class Solution:

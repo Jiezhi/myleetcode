@@ -15,7 +15,7 @@ See:
 """
 from typing import List
 
-from src.tool import print_results
+from tool import print_results
 
 
 class Solution:

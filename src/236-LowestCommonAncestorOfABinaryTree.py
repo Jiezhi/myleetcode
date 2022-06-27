@@ -16,7 +16,7 @@ Time Spent:  min
 
 from typing import Optional, List
 
-from src.tree_node import TreeNode, build_tree_node
+from tree_node import TreeNode, build_tree_node
 
 
 class Solution:

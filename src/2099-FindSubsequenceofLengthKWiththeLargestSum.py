@@ -17,8 +17,6 @@ Time Spent:  min
 """
 from typing import List
 
-from src import tool
-
 
 class Solution:
     def maxSubsequence(self, nums: List[int], k: int) -> List[int]:
@@ -41,7 +39,6 @@ class Solution:
 def test():
     assert Solution().maxSubsequence(nums=[2, 1, 3, 3], k=2) == [3, 3]
     assert Solution().maxSubsequence(nums=[-1, -2, 3, 4], k=3) == [-1, 3, 4]
-    assert tool.equal_list_value(Solution().maxSubsequence(nums=[3, 4, 3, 3], k=2) == [3, 4])
 
 
 if __name__ == '__main__':

@@ -17,7 +17,7 @@ Time Spent:  min
 
 from typing import List, Optional
 
-from src.list_node import ListNode, buildListNode
+from list_node import ListNode, buildListNode
 
 
 class Solution:

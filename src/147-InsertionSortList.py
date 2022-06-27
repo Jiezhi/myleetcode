@@ -21,7 +21,7 @@ http://steve-yegge.blogspot.com/2008/03/get-that-job-at-google.html
 """
 from typing import Optional
 
-from src.list_node import ListNode, buildListNode
+from list_node import ListNode, buildListNode
 
 
 class Solution:

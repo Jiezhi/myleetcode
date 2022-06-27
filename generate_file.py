@@ -34,9 +34,10 @@ if __name__ == '__main__':
 
 """
 if __name__ == '__main__':
-    name = ' '.join(sys.argv[1:])
-    # name = "84. Largest Rectangle in Histogram"
-    print(name)
+    if len(sys.argv) > 2:
+        name = ' '.join(sys.argv[1:])
+    else:
+        name = "820. Short Encoding of Words"
     fn = ''.join(x.capitalize() if x.islower() else x for x in name.split()).replace('.', '-')
     path = os.path.join(parent_path, fn + '.py')
     if not os.path.exists(path):

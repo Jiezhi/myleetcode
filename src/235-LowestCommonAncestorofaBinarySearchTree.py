@@ -12,7 +12,7 @@ Tag: BST
 
 See: 
 """
-from src.tree_node import TreeNode, build_tree_node
+from tree_node import TreeNode, build_tree_node
 
 
 class Solution:

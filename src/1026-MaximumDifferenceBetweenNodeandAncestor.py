@@ -16,7 +16,7 @@ Time Spent: 10 min
 """
 from typing import Optional
 
-from src.tree_node import TreeNode, build_tree_node
+from tree_node import TreeNode, build_tree_node
 
 
 class Solution:
