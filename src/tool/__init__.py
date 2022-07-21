@@ -5,7 +5,12 @@ Created on 20210809
 Des:
 
 """
+
 import collections
+from typing import List, Optional
+
+
+null = None
 
 
 def print_results(fn):
