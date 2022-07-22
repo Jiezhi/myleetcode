@@ -23,6 +23,7 @@ Tag:
 See: 
 
 \"\"\"
+from tool import *
 
 
 def test():
