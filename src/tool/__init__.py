@@ -32,7 +32,6 @@ def equal_list_value(list_a, list_b) -> bool:
 
 def test():
     assert equal_list_value(None, None)
-    assert equal_list_value([], [])
     assert equal_list_value([1, 2], [2, 1])
     assert not equal_list_value([1], [])
 
