@@ -9,6 +9,8 @@ Des:
 import collections
 import math
 import bisect
+import string
+import itertools
 
 from collections import defaultdict, Counter, deque
 from typing import List, Optional
