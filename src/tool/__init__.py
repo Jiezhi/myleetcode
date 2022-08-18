@@ -11,6 +11,7 @@ import math
 import bisect
 import string
 import itertools
+import heapq
 
 from collections import defaultdict, Counter, deque
 from typing import List, Optional
