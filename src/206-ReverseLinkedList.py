@@ -9,10 +9,8 @@ Leetcode: https://leetcode.com/problems/reverse-linked-list/
 https://leetcode.com/explore/item/3966
 Difficulty: Easy
 """
-from typing import Optional
-
-from list_node import *
-from tool import print_results
+from list_node import ListNode
+from tool import *
 
 
 class Solution:
@@ -40,25 +38,23 @@ class Solution:
         return ret
 
     def reverseList(self, head: ListNode) -> ListNode:
-        if not head or not head.next:
-            return head
-        cur = head
-        tmp = None
-        while cur:
-            cur_list = cur.next
-            cur.next = tmp
-            tmp = cur
-            cur = cur_list
-
-        return tmp
+        """
+        2022-08-23
+        :param head:
+        :return:
+        """
+        pre = None
+        while head:
+            pre, head.next, head = head, pre, head.next
+        return pre
 
 
 def test():
-    assert Solution().reverseList2(buildListNode([])) == buildListNode([])
-    assert Solution().reverseList2(buildListNode([1, 2, 3, 4, 5])) == buildListNode([5, 4, 3, 2, 1])
+    assert Solution().reverseList2(ListNode.from_list([])) == ListNode.from_list([])
+    assert Solution().reverseList2(ListNode.from_list([1, 2, 3, 4, 5])) == ListNode.from_list([5, 4, 3, 2, 1])
 
-    assert Solution().reverseList(buildListNode([])) == buildListNode([])
-    assert Solution().reverseList(buildListNode([1, 2, 3, 4, 5])) == buildListNode([5, 4, 3, 2, 1])
+    assert Solution().reverseList(ListNode.from_list([])) == ListNode.from_list([])
+    assert Solution().reverseList(ListNode.from_list([1, 2, 3, 4, 5])) == ListNode.from_list([5, 4, 3, 2, 1])
 
 
 if __name__ == '__main__':
