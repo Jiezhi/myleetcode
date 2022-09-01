@@ -1,27 +1,50 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
-CREATED AT: 2021/8/17
-Des:
-https://leetcode.com/problems/count-good-nodes-in-binary-tree/
-https://leetcode.com/explore/challenge/card/august-leetcoding-challenge-2021/615/week-3-august-15th-august-21st/3899/
+CREATED AT: 2022-09-01
+
+URL: https://leetcode.com/problems/count-good-nodes-in-binary-tree/
+
 GITHUB: https://github.com/Jiezhi/myleetcode
 
+FileName: 1448-CountGoodNodesInBinaryTree
+
+Difficulty: Medium
+
+Desc: 
+
+Tag: 
+
+See: 
+
 """
-
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-import collections
-
-from tree_node import *
+from tool import *
+from tree_node import TreeNode
 
 
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
         """
+        Runtime: 330 ms, faster than 72.00%
+        Memory Usage: 32.7 MB, less than 7.60%
+
+        The number of nodes in the binary tree is in the range [1, 10^5].
+        Each node's value is between [-10^4, 10^4].
+        """
+        ret = 0
+        stack = [(root, root.val)]
+        while stack:
+            node, val = stack.pop()
+            if node.val >= val:
+                ret += 1
+            if node.left:
+                stack.append((node.left, max(val, node.val)))
+            if node.right:
+                stack.append((node.right, max(val, node.val)))
+        return ret
+
+    def goodNodes2(self, root: TreeNode) -> int:
+        """
+        2021/8/17
         63 / 63 test cases passed.
         Status: Accepted
         Runtime: 244 ms
@@ -51,10 +74,12 @@ class Solution:
 
 
 def test():
-    null = None
-    assert Solution().goodNodes(build_tree_node([3, 1, 4, 3, null, 1, 5])) == 4
-    assert Solution().goodNodes(build_tree_node([3, 3, null, 4, 2])) == 3
-    assert Solution().goodNodes(build_tree_node([1])) == 1
+    assert Solution().goodNodes2(root=TreeNode.from_list([3, 1, 4, 3, null, 1, 5])) == 4
+    assert Solution().goodNodes2(root=TreeNode.from_list([3, 3, null, 4, 2])) == 3
+    assert Solution().goodNodes2(root=TreeNode.from_list([1])) == 1
+    assert Solution().goodNodes(root=TreeNode.from_list([3, 1, 4, 3, null, 1, 5])) == 4
+    assert Solution().goodNodes(root=TreeNode.from_list([3, 3, null, 4, 2])) == 3
+    assert Solution().goodNodes(root=TreeNode.from_list([1])) == 1
 
 
 if __name__ == '__main__':
