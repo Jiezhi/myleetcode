@@ -64,8 +64,8 @@ class UnionFindByRank:
         elif self.rank[rootx] > self.rank[rooty]:
             self.root[rooty] = rootx
         else:
-            self.root[y] = rootx
-            self.rank[x] += 1
+            self.root[rooty] = rootx
+            self.rank[rootx] += 1
 
 
 if __name__ == '__main__':
