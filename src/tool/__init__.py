@@ -12,6 +12,7 @@ import bisect
 import string
 import itertools
 import heapq
+import operator
 
 from collections import defaultdict, Counter, deque
 from typing import List, Optional
