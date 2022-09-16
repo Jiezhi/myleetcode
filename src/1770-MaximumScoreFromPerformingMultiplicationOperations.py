@@ -1,24 +1,48 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
-CREATED AT: 2022/1/20
-Des:
+CREATED AT: 2022-09-16
 
-https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/
-https://leetcode.com/explore/featured/card/dynamic-programming/631/strategy-for-solving-dp-problems/4146/
+URL: https://leetcode.com/problems/maximum-score-from-performing-multiplication-operations/
+
 GITHUB: https://github.com/Jiezhi/myleetcode
+
+FileName: 1770-MaximumScoreFromPerformingMultiplicationOperations
 
 Difficulty: Medium
 
+Desc: 
+
 Tag: 
 
-See: https://leetcode.com/explore/featured/card/dynamic-programming/631/strategy-for-solving-dp-problems/4100/
+See: 
 
-Time Spent:  min
 """
-from typing import List
+from tool import *
 
 
 class Solution:
+    def maximumScore3(self, nums: List[int], multipliers: List[int]) -> int:
+        """
+        2022-09-16 LTE on Python again!
+        n == nums.length
+        m == multipliers.length
+        1 <= m <= 10^3
+        m <= n <= 10^5
+        -1000 <= nums[i], multipliers[i] <= 1000
+        """
+        m, n = len(multipliers), len(nums)
+
+        @cache
+        def dp(i, j, pos) -> int:
+            if i > j or pos >= m:
+                return 0
+            cur_mul = multipliers[pos]
+            if i == j:
+                return cur_mul * nums[i]
+            return max(dp(i + 1, j, pos + 1) + nums[i] * cur_mul, dp(i, j - 1, pos + 1) + nums[j] * cur_mul)
+
+        return dp(0, n - 1, 0)
+
     def maximumScore2(self, nums: List[int], multipliers: List[int]) -> int:
         """
         CREATED AT: 2022/1/20
