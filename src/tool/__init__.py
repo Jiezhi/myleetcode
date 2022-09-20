@@ -13,6 +13,7 @@ import string
 import itertools
 import heapq
 import operator
+import sys
 
 from collections import defaultdict, Counter, deque
 from typing import List, Optional
@@ -21,6 +22,9 @@ from queue import Queue
 
 
 null = None
+
+# same as leetcode
+sys.setrecursionlimit(550000)
 
 
 def print_results(fn):
