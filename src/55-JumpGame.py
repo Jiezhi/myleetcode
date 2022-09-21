@@ -9,7 +9,7 @@ GITHUB: https://github.com/Jiezhi/myleetcode
 
 Difficulty: Medium
 """
-from typing import List
+from tool import *
 
 
 class Solution:
@@ -49,6 +49,28 @@ class Solution:
                 return False
             max_step = max(i + n, max_step)
         return True
+
+    def canJump3(self, nums: List[int]) -> bool:
+        """
+        2022/09/21
+        Runtime: 1083 ms, faster than 27.83%
+        Memory Usage: 15.2 MB, less than 81.43%
+
+        1 <= nums.length <= 10^4
+        0 <= nums[i] <= 10^5
+        :param nums:
+        :return:
+        """
+        n = len(nums)
+        if n == 1:
+            return True
+        max_jump = 0
+        for i, num in enumerate(nums):
+            if i > max_jump:
+                return False
+            max_jump = max(max_jump, i + num)
+            if max_jump >= n - 1:
+                return True
 
 
 def test():
