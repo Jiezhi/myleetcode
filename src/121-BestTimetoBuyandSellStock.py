@@ -1,19 +1,43 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
-CREATED AT: 2021/8/22
-Des:
+CREATED AT: 2022-09-22
 
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+URL: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 https://leetcode.com/explore/featured/card/top-interview-questions-easy/97/dynamic-programming/572/
+
 GITHUB: https://github.com/Jiezhi/myleetcode
 
+FileName: 121-BestTimeToBuyAndSellStock
+
+Difficulty: Easy
+
+Desc: 
+
+Tag: 
+
+See: 
+
 """
-from typing import List
+from tool import *
 
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         """
+        2022-09-22
+        1 <= prices.length <= 10^5
+        0 <= prices[i] <= 10^4
+        """
+        hold = 10 ** 4 + 1
+        ret = 0
+        for p in prices:
+            ret = max(ret, p - hold)
+            hold = min(p, hold)
+        return ret
+
+    def maxProfit2(self, prices: List[int]) -> int:
+        """
+        2021/8/22
         211 / 211 test cases passed.
         Status: Accepted
         Runtime: 920 ms
