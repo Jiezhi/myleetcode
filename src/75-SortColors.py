@@ -16,6 +16,18 @@ class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
+        """
+        cnt = collections.Counter(nums)
+        cur = 0
+        for i in range(len(nums)):
+            while not cnt[cur]:
+                cur += 1
+            nums[i] = cur
+            cnt[cur] -= 1
+
+    def sortColors2(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
 
         87 / 87 test cases passed.
         Status: Accepted
