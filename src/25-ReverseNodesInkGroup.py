@@ -31,14 +31,11 @@ class Solution:
         if k == 1:
             return head
 
-        def reverse(node) -> (Optional[ListNode], Optional[ListNode]):
-            if not node.next:
-                return node, node
-            next_node = node.next
-            node.next = None
-            new_node, new_tail = reverse(next_node)
-            new_tail.next = node
-            return new_node, node
+        def reverse(head) -> Optional[ListNode]:
+            pre = None
+            while head:
+                pre, head.next, head = head, pre, head.next
+            return pre
 
         sentinal = ListNode(0, head)
         tail = sentinal
@@ -50,7 +47,7 @@ class Solution:
             if i == k:
                 next_head = tmp_node.next
                 tmp_node.next = None
-                ret, _ = reverse(head)
+                ret = reverse(head)
                 tail.next = ret
                 tail = head
                 i = 1
