@@ -7,12 +7,13 @@ https://leetcode.com/explore/interview/card/top-interview-questions-medium/103/a
 GITHUB: https://github.com/Jiezhi/myleetcode
 
 """
-from typing import List
+from tool import *
 
 
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
         """
+        2021/8/28
         76 / 76 test cases passed.
         Status: Accepted
         Runtime: 695 ms
@@ -33,6 +34,26 @@ class Solution:
             if nums[i] > min_value:
                 flag_num = min(nums[i], flag_num)
             min_value = min(min_value, nums[i])
+        return False
+
+    def increasingTriplet2(self, nums: List[int]) -> bool:
+        """
+        20221011
+        Runtime: 897 ms, faster than 64.93%
+        Memory Usage: 24.6 MB, less than 80.42%
+        1 <= nums.length <= 5 * 10^5
+        -2^31 <= nums[i] <= 2^31 - 1
+        """
+        if len(nums) < 3:
+            return False
+        pre, middle = nums[0], math.inf
+        for num in nums[1:]:
+            if num > middle:
+                return True
+            if pre < num < middle:
+                middle = num
+            elif num < pre:
+                pre = num
         return False
 
 
