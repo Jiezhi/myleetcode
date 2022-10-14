@@ -11,7 +11,7 @@ Difficulty: Medium
 
 Tags: DP
 """
-from functools import lru_cache
+from tool import *
 
 
 class Solution:
@@ -50,6 +50,44 @@ class Solution:
             if len(tmp_longest) > len(longest):
                 longest = tmp_longest
         return longest
+
+    def longestPalindrome2(self, s):
+        """
+        20221014 HW 二面
+        执行用时：620 ms 在所有 Python3 提交中击败了 67.04% 用户
+        内存消耗：62 MB 在所有 Python3 提交中击败了 5.06%用户
+        通过测试用例：40 / 140
+        1 <= s.length <= 1000
+        s 仅由数字和英文字母组成
+        :type s: str
+        :rtype: str
+        """
+
+        ret = (1, s[0])
+
+        @cache
+        def isPalindrome(i, j) -> bool:
+            if i == j:
+                return True
+            if not 0 <= i <= j < len(s):
+                return True
+
+            return s[i] == s[j] and isPalindrome(i + 1, j - 1)
+
+        pos = collections.defaultdict(list)
+        for i, c in enumerate(s):
+            pos[c].append(i)
+
+        for i, c in enumerate(s):
+            p = pos[c]
+            for j in p[::-1]:
+                if i >= j or j - i + 1 < ret[0]:
+                    break
+                if isPalindrome(i, j) and j - i + 1 > ret[0]:
+                    ret = (j - i + 1, s[i:j + 1])
+                    break
+
+        return ret[1]
 
 
 def test():
