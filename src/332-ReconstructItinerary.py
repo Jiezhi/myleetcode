@@ -23,6 +23,26 @@ from tool import *
 class Solution:
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:
         """
+        https://leetcode.cn/problems/reconstruct-itinerary/solution/zhong-xin-an-pai-xing-cheng-by-leetcode-solution/
+        Hierholzer
+        """
+        adj = collections.defaultdict(list)
+        for a, b in tickets:
+            adj[a].append(b)
+        for k in adj.keys():
+            adj[k] = sorted(adj[k], reverse=True)
+        ret = []
+
+        def dfs(node):
+            while adj[node]:
+                dfs(adj[node].pop())
+            ret.append(node)
+
+        dfs('JFK')
+        return ret[::-1]
+
+    def findItinerary2(self, tickets: List[List[str]]) -> List[str]:
+        """
         Runtime: 998 ms, faster than 5.04%
         Memory Usage: 35.7 MB, less than 7.12%
 
