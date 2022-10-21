@@ -23,6 +23,23 @@ from tool import *
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         """
+        2022-10-21
+        Runtime: 760 ms, faster than 81.02%
+        Memory Usage: 27.6 MB, less than 14.95%
+
+        1 <= nums.length <= 10^5
+        -10^9 <= nums[i] <= 10^9
+        0 <= k <= 10^5
+        """
+        pos = {}
+        for i, num in enumerate(nums):
+            if num in pos and i - pos[num] <= k:
+                return True
+            pos[num] = i
+        return False
+
+    def containsNearbyDuplicate2(self, nums: List[int], k: int) -> bool:
+        """
         51 / 51 test cases passed.
         Status: Accepted
         Runtime: 1186 ms, faster than 18.87%
