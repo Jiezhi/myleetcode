@@ -7,11 +7,34 @@ https://leetcode.com/problems/partition-array-into-disjoint-intervals/
 GITHUB: https://github.com/Jiezhi/myleetcode
 
 """
-from typing import List
+from tool import *
 
 
 class Solution:
     def partitionDisjoint(self, nums: List[int]) -> int:
+        """
+        2022/10/24
+        Runtime: 3255 ms, faster than 18.25%
+        Memory Usage: 28.1 MB, less than 23.65%
+
+        2 <= nums.length <= 10^5
+        0 <= nums[i] <= 10^6
+        There is at least one valid answer for the given input.
+        """
+        n = len(nums)
+        small = [nums[0]]
+        large = [nums[-1]]
+        for i in range(1, n):
+            small.append(max(small[i - 1], nums[i]))
+            j = n - i - 1
+            large.append(min(large[i - 1], nums[j]))
+        large = large[::-1]
+
+        for i in range(n - 1):
+            if small[i] <= large[i + 1]:
+                return i + 1
+
+    def partitionDisjoint2(self, nums: List[int]) -> int:
         l_max = tmp_max = nums[0]
         l_len = 1
         going_compare = False
