@@ -25,7 +25,7 @@ class Solution:
         """
         Runtime: 1406 ms, faster than 75.00%
         Memory Usage: 43.1 MB, less than 8.33%
-        
+
         n == nums.length == target.length
         1 <= n <= 10^5
         1 <= nums[i], target[i] <= 10^6
@@ -63,6 +63,14 @@ class Solution:
                     ret += abs(tnum - snum) * target_cnt[tnum]
                     del target_cnt[tnum]
         return ret // 4
+
+    def makeSimilar2(self, A, B):
+        """
+        https://leetcode.com/problems/minimum-number-of-operations-to-make-arrays-similar/discuss/2734189/C%2B%2BPython-Sort-odds-and-evens
+        """
+        A.sort(key=lambda a: (a & 1, a))
+        B.sort(key=lambda a: (a & 1, a))
+        return sum(abs(a - b) for a, b in zip(A, B)) // 4
 
 
 def test():
