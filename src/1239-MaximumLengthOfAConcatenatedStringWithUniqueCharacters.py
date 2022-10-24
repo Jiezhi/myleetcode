@@ -15,6 +15,33 @@ from typing import List
 class Solution:
     def maxLength(self, arr: List[str]) -> int:
         """
+        Solved 2022/10/24
+        Runtime: 413 ms, faster than 26.04%
+        Memory Usage: 14.1 MB, less than 43.86%
+
+        1 <= arr.length <= 16
+        1 <= arr[i].length <= 26
+        arr[i] contains only lowercase English letters.
+        """
+        ret = 0
+        stack = [(set(), 0)]
+        while stack:
+            cset, pos = stack.pop()
+            ret = max(ret, len(cset))
+            if pos >= len(arr):
+                continue
+            stack.append((cset, pos + 1))
+            if all(c not in cset for c in arr[pos]):
+                tmp = set(arr[pos])
+                if len(tmp) != len(arr[pos]):
+                    continue
+                copy = cset.copy()
+                copy |= tmp
+                stack.append((copy, pos + 1))
+        return ret
+
+    def maxLength2(self, arr: List[str]) -> int:
+        """
         Solved 2022/2/28
         Runtime: 626 ms, faster than 16.57%
         Memory Usage: 14 MB, less than 81.13%
