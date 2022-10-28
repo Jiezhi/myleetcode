@@ -1,25 +1,44 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
-CREATED AT: 2021/8/12
-Des:
-https://leetcode.com/problems/group-anagrams/
+CREATED AT: 2022-10-28
+
+URL: https://leetcode.com/problems/group-anagrams/
 https://leetcode.com/explore/challenge/card/august-leetcoding-challenge-2021/614/week-2-august-8th-august-14th/3887/
+
 GITHUB: https://github.com/Jiezhi/myleetcode
 
-Reference: https://leetcode.com/problems/group-anagrams/discuss/1398888/Python-Group-by-sorted-string-group-by-count-characters-Solutions-Clean-and-Concise
-"""
-import collections
-from typing import List
+FileName: 49-GroupAnagrams
 
-from tool import print_results
+Difficulty: Medium
+
+Desc: 
+
+Tag: 
+
+See: 
+
+"""
+from tool import *
 
 
 class Solution:
-    @print_results
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         """
+        Runtime: 311 ms, faster than 10.81%
+        Memory Usage: 21.6 MB, less than 9.93%
+
+        1 <= strs.length <= 10^4
+        0 <= strs[i].length <= 100
+        strs[i] consists of lowercase English letters.
+        """
+        cnt = collections.defaultdict(list)
+        for s in strs:
+            cnt[tuple(sorted(Counter(s).items()))].append(s)
+        return [x for x in cnt.values()]
+
+    def groupAnagrams2(self, strs: List[str]) -> List[List[str]]:
+        """
         114 / 114 test cases passed.
-        Status: Accepted
         Runtime: 140 ms
         Memory Usage: 28 MB
         :param strs:
@@ -35,7 +54,6 @@ class Solution:
 def test():
     ans = [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]
     ret = Solution().groupAnagrams(strs=["eat", "tea", "tan", "ate", "nat", "bat"])
-    # just check the length of the result, maybe add check the content next time.
     assert len(ans) == len(ret)
     assert Solution().groupAnagrams(strs=[""]) == [[""]]
     assert Solution().groupAnagrams(strs=["a"]) == [["a"]]
