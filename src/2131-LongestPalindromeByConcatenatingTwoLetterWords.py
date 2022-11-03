@@ -12,14 +12,46 @@ Tag:
 
 See: 
 
-Time Spent:  min
 """
-import collections
-from typing import List
+from tool import *
 
 
 class Solution:
     def longestPalindrome(self, words: List[str]) -> int:
+        """
+        2022/11/3
+        Runtime: 1657 ms, faster than 81.22%
+        Memory Usage: 38.3 MB, less than 86.56%
+
+        1 <= words.length <= 10^5
+        words[i].length == 2
+        words[i] consists of lowercase English letters.
+        """
+        cnt = collections.Counter(words)
+        seen = set()
+        word_set = set(words)
+
+        ret = 0
+        for word in word_set:
+            if word in seen:
+                continue
+            word2 = word[::-1]
+            seen.add(word)
+            if word == word2:
+                l = cnt[word] // 2
+                ret += l * 4
+            elif word2 in word_set:
+                seen.add(word2)
+                l = min(cnt[word], cnt[word2])
+                ret += l * 4
+        for c in string.ascii_lowercase:
+            w = c * 2
+            if w in cnt and cnt[w] & 1:
+                ret += 2
+                break
+        return ret
+
+    def longestPalindrome2(self, words: List[str]) -> int:
         """
         1 <= words.length <= 10^5
         words[i].length == 2
